@@ -1,11 +1,13 @@
 ﻿using CSCI5220CSharpReview;
+using System.Text.Json;
 
 //Console.WriteLine("Hello, World!");
 //EnumDemo();
 //ClassDemo();
 //InterfaceDemo();
 //ArrayDemo();
-ImplicitTypeDemo();
+//ImplicitTypeDemo();
+AnonymousDemo();
 
 static void EnumDemo()
 {
@@ -93,4 +95,26 @@ static void ImplicitTypeDemo()
 
     Console.WriteLine(
         $"i = {i}, s = {s}, a = [{String.Join(",", a)}], list = [{String.Join(",", list)}]");
+}
+
+static void AnonymousDemo()
+{
+    var o = new { Amount = 108, Message = "Hello" };
+
+    var ojson = JsonSerializer.Serialize(o);
+
+    var v = new { Key = 42, Value = "Hello" };
+
+    var vjson = JsonSerializer.Serialize(v);
+
+    var anonArray =
+        new[] {
+            new { name = "apple", diam = 4 },
+            new { name = "grape", diam = 1 }
+        };
+
+    var ajson = JsonSerializer.Serialize(anonArray);
+
+    Console.WriteLine($"o = {ojson}, v = {vjson}, anonArray = {ajson}");
+
 }
