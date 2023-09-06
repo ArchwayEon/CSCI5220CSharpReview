@@ -4,7 +4,8 @@
 //EnumDemo();
 //ClassDemo();
 //InterfaceDemo();
-ArrayDemo();
+//ArrayDemo();
+ImplicitTypeDemo();
 
 static void EnumDemo()
 {
@@ -74,4 +75,22 @@ static void ArrayDemo()
     jaggedArray[0] = new int[4] { 1, 2, 3, 4 };
 
     Console.WriteLine($"Array 1 [{a1str}] Array 2 [{a2str}] Array 3 [{a3str}]");
+}
+
+static void ImplicitTypeDemo()
+{
+    // i is compiled as an int 
+    var i = 5;
+
+    // s is compiled as a string 
+    var s = "Hello";
+
+    // a is compiled as int[] 
+    var a = new[] { 0, 1, 2 };
+
+    // list is compiled as List<int>                              
+    var list = new List<int>();
+
+    Console.WriteLine(
+        $"i = {i}, s = {s}, a = [{String.Join(",", a)}], list = [{String.Join(",", list)}]");
 }
