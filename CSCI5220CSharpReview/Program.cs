@@ -9,7 +9,9 @@ using System.Text.Json;
 //ImplicitTypeDemo();
 //AnonymousDemo();
 //LINQDemo();
-LambdaDemo();
+//LambdaDemo();
+NullableTypesDemo();
+NullableTypesDemo(42);
 
 static void EnumDemo()
 {
@@ -153,4 +155,31 @@ static void LambdaDemo()
     // Note the use of the null-conditional operator
     var model = $"Id={product?.Id} Color={product?.Color}, Price={product?.Price}";
     Console.WriteLine(model);
+}
+
+static void NullableTypesDemo(int? val = null)
+{
+    var model = "";
+    int? x = val;
+    if (x.HasValue)
+    {
+        model = "x=" + Convert.ToString(x.Value);
+    }
+    else
+    {
+        model = "x=Undefined";
+    }
+
+    int? c = val;
+
+    // d = c, unless c is null, in which case d = -1. 
+    int d = c ?? -1;
+
+    int? e = val;
+    int? f = val;
+
+    // g = e or f, unless e and f are both null, in which case g = -1.
+    int g = e ?? f ?? -1;
+
+    Console.WriteLine($"model = '{model}' c = '{c}' d = '{d}' g = '{g}'");
 }
