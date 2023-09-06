@@ -7,7 +7,8 @@ using System.Text.Json;
 //InterfaceDemo();
 //ArrayDemo();
 //ImplicitTypeDemo();
-AnonymousDemo();
+//AnonymousDemo();
+LINQDemo();
 
 static void EnumDemo()
 {
@@ -116,5 +117,25 @@ static void AnonymousDemo()
     var ajson = JsonSerializer.Serialize(anonArray);
 
     Console.WriteLine($"o = {ojson}, v = {vjson}, anonArray = {ajson}");
+}
 
+static void LINQDemo()
+{
+    var products = new[]{
+      new {Color = "Red", Price=1.3m},
+      new {Color = "Blue", Price=2.45m},
+      new {Color = "Pink", Price=0.89m}
+    };
+
+    var productQuery =
+       from prod in products
+       select new { prod.Color, prod.Price };
+
+    var model = "";
+    foreach (var p in productQuery)
+    {
+        model += $"Color={p.Color}, Price={p.Price}\n";
+    }
+
+    Console.WriteLine(model);
 }
