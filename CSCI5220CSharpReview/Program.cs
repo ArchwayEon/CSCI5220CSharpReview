@@ -1,7 +1,8 @@
 ﻿using CSCI5220CSharpReview;
 
-Console.WriteLine("Hello, World!");
-EnumDemo();
+//Console.WriteLine("Hello, World!");
+//EnumDemo();
+ClassDemo();
 
 
 static void EnumDemo()
@@ -14,6 +15,24 @@ static void EnumDemo()
     {
         model += item + " ";
     }
+
+    Console.WriteLine(model);
+}
+
+static void ClassDemo()
+{
+    Employee e = new()
+    {
+        Name = "Jeff"
+    };
+    Manager m = new()
+    {
+        Name = "Evelyn"
+    };
+
+    string model = e.Talk();
+    model += Environment.NewLine;
+    model += m.Talk();
 
     Console.WriteLine(model);
 }
