@@ -8,7 +8,8 @@ using System.Text.Json;
 //ArrayDemo();
 //ImplicitTypeDemo();
 //AnonymousDemo();
-LINQDemo();
+//LINQDemo();
+LambdaDemo();
 
 static void EnumDemo()
 {
@@ -137,5 +138,19 @@ static void LINQDemo()
         model += $"Color={p.Color}, Price={p.Price}\n";
     }
 
+    Console.WriteLine(model);
+}
+
+static void LambdaDemo()
+{
+    var products = new[]{
+      new {Id = 1, Color = "Red", Price=1.3m},
+      new {Id = 3, Color = "Blue", Price=2.45m},
+      new {Id = 4, Color = "Pink", Price=0.89m}
+    };
+
+    var product = products.FirstOrDefault(p => p.Id == 3);
+    // Note the use of the null-conditional operator
+    var model = $"Id={product?.Id} Color={product?.Color}, Price={product?.Price}";
     Console.WriteLine(model);
 }
