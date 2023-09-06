@@ -2,8 +2,8 @@
 
 //Console.WriteLine("Hello, World!");
 //EnumDemo();
-ClassDemo();
-
+//ClassDemo();
+InterfaceDemo();
 
 static void EnumDemo()
 {
@@ -37,5 +37,10 @@ static void ClassDemo()
     Console.WriteLine(model);
 }
 
+static void InterfaceDemo()
+{
+    IAreaReporter r = new Rectangle { Length = 20, Width = 10 };
+    Console.WriteLine($"The area of the shape is {r.GetArea()}");
+}
 
 
